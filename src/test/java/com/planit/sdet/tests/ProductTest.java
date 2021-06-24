@@ -10,7 +10,7 @@ public class ProductTest extends BaseTest{
     
     @Test
 
-    public void validateProducts(){
+    public void validateProductName(){
         var products=open(HomePage.class)
         .clickProductMenu()
         .clickModelLevel1()
@@ -19,5 +19,17 @@ public class ProductTest extends BaseTest{
         .getProduct(p -> p.getProductTitle().equals("Kincrome 1,000kg Dual Stage Transmission Jack"));
        assertEquals(799, products.getProductPrice());
 
+    }
+
+    @Test
+    public void validateProductTitle() {
+        var product = open(HomePage.class)
+        .clickProductMenu()
+        .clickModelLevel1()
+        .clickModelLevel2()
+        .clickModelLevel3()
+        .getProduct(p -> p.getProductPrice()==399);
+        
+        assertEquals("Kincrome 2000 Hydraulic Super Low Profile Garage Jack", product.getProductTitle());
     }
 }

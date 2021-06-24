@@ -1,28 +1,48 @@
 package com.planit.sdet.tests;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
-public abstract class BaseTest {
-    
-    protected WebDriver driver;
+public class BaseTest {
 
+    public WebDriver driver;
+
+    @SuppressWarnings("deprecation")
     @BeforeEach
-    public void startUp(){
-    this.driver = new FirefoxDriver();
-
-        this.driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-        this.driver.manage().window().maximize();
-        this.driver.get("https://www.bunnings.com.au");
+    public void startUp() {
+        String url = "https://www.bunnings.com.au";
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        options.addArguments("start-maximized");
+        // options.addArguments("--disable-geolocation");
+        Map < String, Object > prefs = new HashMap < String, Object > ();
+        Map < String, Object > profile = new HashMap < String, Object > ();
+        Map < String, Object > contentSettings = new HashMap < String, Object > ();
+        contentSettings.put("geolocation", 2);
+        profile.put("managed_default_content_settings", contentSettings);
+    prefs.put("profile", profile);
+    options.setExperimentalOption("prefs", prefs);
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        driver = new ChromeDriver(capabilities);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.get(url);
     }
 
     @AfterEach
     public void shutdown() {
+        // 5. Close browser
         this.driver.quit();
     }
 
@@ -35,4 +55,3 @@ public abstract class BaseTest {
         }
     }
 }
-
