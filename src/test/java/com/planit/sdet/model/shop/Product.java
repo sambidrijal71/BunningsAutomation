@@ -13,6 +13,7 @@ public class Product {
         this.rootElement = rootElement;
         this.parent = parent;
     }
+
     public String getProductTitle() {
         return this.rootElement.findElement(By.className("product-title")).getText();
     }
@@ -24,6 +25,10 @@ public class Product {
         this.rootElement.findElement(By.className("MuiButton-textSecondary")).click();
         return this;
     }
+    public String getProductRating() {
+        return this.rootElement.findElement(By.className("span-review-container")).getText();
+    }
+
     public ProductPage page() {
         return parent;
     }
