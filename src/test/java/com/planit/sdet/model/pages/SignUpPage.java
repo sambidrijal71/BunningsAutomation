@@ -3,33 +3,33 @@ package com.planit.sdet.model.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SignUp extends BasePage{
+public class SignUpPage extends BasePage{
 
-    public SignUp(WebDriver driver) {
+    public SignUpPage(WebDriver driver) {
         super(driver);
 
     }
-    public SignUp setFirstName(String firstName){
+    public SignUpPage setFirstName(String firstName){
         driver.findElement(By.id("firstName")).sendKeys(firstName);
         return this;
     }
-    public SignUp setLastName(String lastName){
+    public SignUpPage setLastName(String lastName){
         driver.findElement(By.id("lastName")).sendKeys(lastName);
         return this;
     }
-    public SignUp setEmail(String firstName){
+    public SignUpPage setEmail(String firstName){
         driver.findElement(By.id("uid")).sendKeys(firstName);;
         return this;
     }
-    public SignUp setPassword(String password){
+    public SignUpPage setPassword(String password){
         driver.findElement(By.id("password")).sendKeys(password);;
         return this;
     }
-    public SignUp clickCheckBox(){
+    public SignUpPage clickCheckBox(){
         driver.findElement(By.id("communicationPrefFlag")).click();
         return this;
     }
-    public SignUp clickCreateAccount(){
+    public SignUpPage clickCreateAccount(){
         driver.findElement(By.cssSelector("div:nth-child(8) > button > span")).click();
         return this;
     }
