@@ -14,8 +14,13 @@ public abstract class BasePage {
        driver.findElement(By.id("icon-account")).click();
        return new SignInPage(driver);
     }
-    public SignUp clickSignUpMenu(){
+    public SignUpPage clickSignUpMenu(){
         driver.findElement(By.cssSelector("div:nth-child(5) > span > span > a")).click();
-        return new SignUp(driver);
+        return new SignUpPage(driver);
+    }
+    public ProductPage clickProductMenu(){
+        driver.findElement(By.id("navContainer")).click();
+         return new ProductPage(driver);
+       
     }
 }
