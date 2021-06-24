@@ -13,26 +13,63 @@ public class ProductPage extends BasePage{
         super(driver);
     }
     
-    
+  
     public ProductPage clickModelLevel1(){
-        new WebDriverWait(driver,30).until(d->d.findElement(By.cssSelector("li:nth-child(2) > a > span.text"))).click();
+        driver.findElement(By.cssSelector("li:nth-child(2) > a > span.text")).click();
         return this;
     }
     public ProductPage clickModelLevel2(){
-        new WebDriverWait(driver,30).until(d->d.findElement(By.cssSelector("li.active > ul > div > li:nth-child(3) > a > span.text"))).click();
+        driver.findElement(By.cssSelector("li.active > ul > div > li:nth-child(3) > a > span.text")).click();
         return this;
     }
     public ProductPage clickModelLevel3(){
-        new WebDriverWait(driver,30).until(d->d.findElement(By.cssSelector(" li.active > ul > div > li.active > ul > div > li:nth-child(3) > a > span.text"))).click();
+
+        driver.findElement(By.cssSelector("li.active > ul > div > li.active > ul > div > li:nth-child(3) > a > span.text")).click();
         return this;
     }
+
+    public ProductPage clickSearchBar(){
+        driver.findElement(By.id("custom-css-outlined-input")).click();
+       return this;
+     }
+
+
+     public ProductPage SetValuesInSearchBar(String SearchValue){
+        driver.findElement(By.className("MuiInputBase-input")).sendKeys(SearchValue);
+       return this;
+     }
+
+    public ProductPage clickSearchButton(){
+        driver.findElement(By.className("search-icon-wrapper")).click();
+       return this;
+     }
+
+     public ProductPage clickSearchButtonn(){
+        driver.findElement(By.id("crossIcon")).click();
+       return this;
+     }
+
+     public String verifySearchResult(){
+
+        var elem = driver.findElement(By.className("searchTerm"));
+        return elem.findElement(By.cssSelector("h2 > span")).getText();
+      
+     }
+    
+
+     public String verifyPopularSearchDialog(){
+        return this.driver.findElement(By.className("iPwNXt")).getText();
+        
+     }
+
     public Product getProduct(Function<Product, Boolean> strategy) {
-        var elements = new WebDriverWait(driver,30).until(d->d.findElements(By.className("search-product-tile")));
+        var elements = new WebDriverWait(driver, 30).until(d -> d.findElements(By.className("search-product-tile")));
         return elements.stream()
             .map(e -> new Product(e, this))
             .filter(p -> strategy.apply(p))
             .findFirst()
             .orElseThrow();
     }
+
 
 }

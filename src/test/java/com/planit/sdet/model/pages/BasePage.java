@@ -1,5 +1,6 @@
 package com.planit.sdet.model.pages;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -27,4 +28,30 @@ public abstract class BasePage{
         driver.findElement(By.id("icon-cart")).click();
         return new CartPage(driver);
     }
+    public int getCartCount() {
+        return Integer.parseInt(driver.findElement(By.className("cartItemCount")).getText());
+    }
+
+
+    public ProductPage clickSearchBar(){
+        driver.findElement(By.id("custom-css-outlined-input")).click();
+       return new ProductPage(driver);
+     }
+
+
+     public ProductPage SetValuesInSearchBar(String SearchValue){
+        driver.findElement(By.className("MuiInputBase-input")).sendKeys(SearchValue);
+       return new ProductPage(driver);
+     }
+
+    public ProductPage clickSearchButton(){
+        driver.findElement(By.className("search-icon-wrapper")).click();
+       return new ProductPage(driver);
+     }
+
+     public ProductPage clickSearchButtonn(){
+        driver.findElement(By.id("crossIcon")).click();
+       return new ProductPage(driver);
+     }
+    
 }
