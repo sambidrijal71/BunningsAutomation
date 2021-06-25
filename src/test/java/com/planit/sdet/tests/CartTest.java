@@ -19,12 +19,12 @@ public class CartTest extends BaseTest{
         .getProduct(p -> p.getProductTitle().equals("Kincrome 1,000kg Dual Stage Transmission Jack"))
         .clickAddToCart();
 
-        // var test =new HomePage(driver);
-        // driver.findElement(By.id("navContainer")).click();
-        // driver.findElement(By.cssSelector("li:nth-child(2) > a > span.text")).click();
-        // driver.findElement(By.cssSelector("li.active > ul > div > li:nth-child(3) > a > span.text")).click();
-        // driver.findElement(By.cssSelector("li.active > ul > div > li.active > ul > div > li:nth-child(3) > a > span.text")).click();
-        // driver.findElement(By.cssSelector("article[data-code='0275525']"));
+        /*var test =new HomePage(driver);
+        driver.findElement(By.id("navContainer")).click();
+        driver.findElement(By.cssSelector("li:nth-child(2) > a > span.text")).click();
+        driver.findElement(By.cssSelector("li.active > ul > div > li:nth-child(3) > a > span.text")).click();
+        driver.findElement(By.cssSelector("li.active > ul > div > li.active > ul > div > li:nth-child(3) > a > span.text")).click();
+        driver.findElement(By.cssSelector("article[data-code='0275525']"));*/
 
 
 

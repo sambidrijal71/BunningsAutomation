@@ -22,17 +22,17 @@ public class SignInTest extends BaseTest{
         assertEquals("This field is required", passwordError);
     }
 
-    // @Test
-    // public void validateUser(){
-    // var signIn=open(HomePage.class)
-    //     .clickCartMenu()
-    //     .clickSignInMenu()
-    //     .clickSignInButtonMain()
-    //     .setEmail("samboharama@gmail.com")
-    //     .setpassword("Ball-Apple1")
-    //     .checkBox()
-    //     .clickSignInButton();
-    // }
+    /*@Test
+    public void validateUser(){
+    var signIn=open(HomePage.class)
+        .clickCartMenu()
+        .clickSignInMenu()
+        .clickSignInButtonMain()
+        .setEmail("samboharama@gmail.com")
+        .setpassword("Ball-Apple1")
+        .checkBox()
+        .clickSignInButton();
+    }*/
 
     @Test
     public void validateUserError(){

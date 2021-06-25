@@ -8,17 +8,17 @@ import org.junit.jupiter.api.Test;
 
 public class SignUpTest extends BaseTest{
     
-    // @Test
-    // public  void validateSignUp(){
-    //     var signUp=open(HomePage.class)
-    //     .clickSignUpMenu()
-    //     .setFirstName("sambid")
-    //     .setLastName("rijal")
-    //     .setEmail("sam@ab.com")
-    //     .setPassword("Apple-1")
-    //     .clickCheckBox()
-    //     .clickCreateAccount();
-    // }
+    /*@Test
+    public  void validateSignUp(){
+        var signUp=open(HomePage.class)
+        .clickSignUpMenu()
+        .setFirstName("sambid")
+        .setLastName("rijal")
+        .setEmail("sam@ab.com")
+        .setPassword("Apple-1")
+        .clickCheckBox()
+        .clickCreateAccount();
+    }*/
 
     @Test
     public  void validateSignUpError(){
